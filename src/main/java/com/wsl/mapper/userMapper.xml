@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wsl.mapper.userMapper">
+    <select id="getUser" resultType="com.wsl.bean.User">
+        select * from user where userName=#{userName}
+    </select>
+
+    <select id="getPermission" resultType="com.wsl.bean.Permission">
+        SELECT p.*,r.role AS role FROM `user` u,role r,permission p,user_role ur,role_permission rp
+        WHERE u.userName=#{userName} AND u.id=ur.userId AND ur.roleId=r.id AND r.id=rp.roleId AND rp.permissionId=p.id
+    </select>
+</mapper>
