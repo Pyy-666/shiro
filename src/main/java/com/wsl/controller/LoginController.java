@@ -58,6 +58,6 @@ public class LoginController {
     @ResponseBody
     @RequestMapping("/show")
     public String showUser() {
-        return "这是信息";
+        return "这是信息!!!";
     }
 }
